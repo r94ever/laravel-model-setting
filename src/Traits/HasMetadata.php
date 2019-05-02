@@ -20,7 +20,7 @@ trait HasMetadata
      * @param string $key
      * @return bool
      */
-    public function hasMeta(string $key)
+    public function hasMetaKey(string $key)
     {
         return array_key_exists($key, $this->{$this->metaColumn()});
     }
@@ -33,6 +33,6 @@ trait HasMetadata
      */
     public function getMetaData(string $key)
     {
-        return $this->hasMeta($key) ? $this->{$this->metaColumn()}[$key] : null;
+        return $this->hasMetaKey($key) ? $this->{$this->metaColumn()}[$key] : null;
     }
 }

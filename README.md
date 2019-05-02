@@ -36,6 +36,17 @@ public function metaColumn()
 }
 ```
 
+Check model has meta key or not:
+
+```php
+$model->hasMetaKey($key)   // return true or false
+```
+
+Get value of the given meta key
+```php
+$model->getMetaData($key)
+```
+
 ### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
