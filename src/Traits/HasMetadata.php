@@ -2,6 +2,8 @@
 
 namespace Webcp\LaravelMetadataTrait\Traits;
 
+use Illuminate\Database\Eloquent\Builder;
+
 trait HasMetadata
 {
     /**
@@ -34,5 +36,19 @@ trait HasMetadata
     public function getMetaData(string $key)
     {
         return $this->hasMetaKey($key) ? $this->{$this->metaColumn()}[$key] : null;
+    }
+
+    /**
+     * Scope a query to only include models which have the given meta key & meta value
+     *
+     * @param  Builder  $query
+     * @param  string   $metaKey
+     * @param  mixed    $metaValue
+     *
+     * @return Builder
+     */
+    public function scopeWhereMeta(Builder $query, $metaKey, $metaValue)
+    {
+        return $query->where(["{$this->metaColumn()}->{$metaKey}" => $metaValue]);
     }
 }

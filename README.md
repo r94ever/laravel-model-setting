@@ -47,6 +47,11 @@ Get value of the given meta key
 $model->getMetaData($key)
 ```
 
+Query to find model which has given meta key & meta value
+```php
+$post = Post::whereMeta('comment_enabled', true)->get();
+```
+
 ### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
