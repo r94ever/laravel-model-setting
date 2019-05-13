@@ -24,7 +24,7 @@ trait HasMetadata
      */
     public function hasMetaKey(string $key)
     {
-        return array_key_exists($key, $this->{$this->metaColumn()});
+        return is_array($this->{$this->metaColumn()}) && array_key_exists($key, $this->{$this->metaColumn()});
     }
 
     /**

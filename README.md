@@ -36,6 +36,20 @@ public function metaColumn()
 }
 ```
 
+Add meta column name to cast as array
+
+```php
+/**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        ...
+        'meta' => 'array'
+    ];
+```
+
 Check model has meta key or not:
 
 ```php
@@ -62,13 +76,8 @@ If you discover any security related issues, please email vandt147@outlook.com i
 
 ## Credits
 
-- [Dương Thành Văn](https://github.com/webcp)
-- [All Contributors](../../contributors)
+- [Dương Thành Văn](https://github.com/r94ever)
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## Laravel Package Boilerplate
-
-This package was generated using the [Laravel Package Boilerplate](https://laravelpackageboilerplate.com).
