@@ -7,7 +7,7 @@
 You can install the package via composer:
 
 ```bash
-composer require webcp/laravel-metadata-trait
+composer require qmas/laravel-metadata-trait
 ```
 
 ## Usage
@@ -18,8 +18,8 @@ Implement `UseMetadataInterface` then add `HasMetaData` trait to your model
 <?php
 
 use Illuminate\Database\Eloquent\Model;
-use Webcp\LaravelMetadataTrait\Interfaces\UseMetadataInterface;
-use Webcp\LaravelMetadataTrait\Traits\HasMetadata;
+use Qmas\LaravelMetadataTrait\Interfaces\UseMetadataInterface;
+use Qmas\LaravelMetadataTrait\Traits\HasMetadata;
 
 class Post extends Model implements UseMetadataInterface
 {
