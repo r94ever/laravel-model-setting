@@ -1,8 +1,8 @@
 {
-    "name": "webcp/laravel-metadata-trait",
+    "name": "qmas/laravel-metadata-trait",
     "description": "Add HasMetadata trait to Laravel model",
     "keywords": [
-        "webcp",
+        "qmas",
         "laravel-metadata-trait"
     ],
     "homepage": "https://github.com/webcp/laravel-metadata-trait",
@@ -10,14 +10,14 @@
     "type": "library",
     "authors": [
         {
-            "name": "Dương Thành Văn",
-            "email": "vandt147@outlook.com",
+            "name": "QMAS",
+            "email": "lienhe@qmas.vn",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^7.1",
-        "illuminate/support": "5.8.*"
+        "illuminate/support": "5.7.*"
     },
     "require-dev": {
         "orchestra/testbench": "3.8.*",
