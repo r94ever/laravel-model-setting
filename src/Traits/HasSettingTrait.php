@@ -63,9 +63,11 @@ trait HasSettingTrait
 
     public function scopeWhereSetting(Builder $builder, string $key, $value): Builder
     {
-        return $builder->whereJsonContains(
-            str_replace('.', '->', $key),
-            $value
-        );
+        return $builder->whereHas('setting', function (/** @var Builder $q */ $q) use ($key, $value) {
+            return $q->whereJsonContains(
+                str_replace('.', '->', $key),
+                $value
+            );
+        });
     }
 }
