@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../keyword-analytics/.idea/Keyword Analytics package.iml" filepath="$PROJECT_DIR$/../keyword-analytics/.idea/Keyword Analytics package.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Laravel Model Setting Package.iml" filepath="$PROJECT_DIR$/.idea/Laravel Model Setting Package.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../laravel/.idea/laravel.iml" filepath="$PROJECT_DIR$/../laravel/.idea/laravel.iml" />
+    </modules>
+  </component>
+</project>

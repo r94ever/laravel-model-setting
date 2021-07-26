@@ -1,4 +1,4 @@
-# Laravel Metadata trait
+# Laravel Model Setting
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/webcp/laravel-metadata-trait.svg?style=flat-square)](https://packagist.org/packages/webcp/laravel-metadata-trait)
 
@@ -7,63 +7,89 @@
 You can install the package via composer:
 
 ```bash
-composer require qmas/laravel-metadata-trait
+composer require r94ever/laravel-model-setting
+```
+
+Publish config and migration
+
+```bash
+php artisan vendor:publish --provider="r94ever\LaravelModelSetting\ModelSettingServiceProvider"
+```
+
+Open `config/model-setting.php` file then set the name of table which hold the setting data to your desire.
+
+Run migration
+
+```bash
+php artisan migrate
 ```
 
 ## Usage
 
-Implement `UseMetadataInterface` then add `HasMetaData` trait to your model
+Implement `HasSettingsContract` then add `HasSettingData` trait to your model
 
 ``` php
-<?php
-
 use Illuminate\Database\Eloquent\Model;
-use Qmas\LaravelMetadataTrait\Interfaces\UseMetadataInterface;
-use Qmas\LaravelMetadataTrait\Traits\HasMetadata;
+use r94ever\LaravelModelSetting\Interfaces\HasSettingContract;
+use r94ever\LaravelModelSetting\Traits\HasSettingTrait;
 
-class Post extends Model implements UseMetadataInterface
+class Post extends Model implements HasSettingContract
 {
-    use HasMetadata;
-```
-
-By default, the meta column name in database is `meta`. If your model uses another one, add `metaColumn()` method to
-overwrite the default method:
-
-```php
-public function metaColumn()
-{
-    return 'meta_data';
+    use HasSettingTrait;
+    
+    ...
 }
 ```
 
-Add meta column name to cast as array
+Save settings:
 
 ```php
-/**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        ...
-        'meta' => 'array'
-    ];
+$model->saveSetting(array $settings);
 ```
 
-Check model has meta key or not:
+Check whether model has setting:
 
 ```php
-$model->hasMetaKey($key)   // return true or false
+$model->hasSetting(string $key);   // return true or false
 ```
 
-Get value of the given meta key
+Check whether model has multiple given settings:
+
 ```php
-$model->getMetaData($key)
+$model->hasSettings(array $keys, bool $any = false);   // return true or false
+
+// When $any is FALSE, method will return TRUE only if model has all given setting keys
+// Otherwise, method will return TRUE if model has any of the given setting keys 
+```
+
+Get value of the given setting key
+```php
+$model->getSetting(string $key, $defaultValue);
+```
+
+Or get values from multiple setting keys
+
+```php
+$model->getSettings(array $keys);
 ```
 
 Query to find model which has given meta key & meta value
 ```php
-$post = Post::whereMeta('comment_enabled', true)->get();
+$post = Post::whereSetting('setting_key', $settingValue)->get();
+```
+
+For nested keys:
+
+```php
+$post = Post::whereSetting('key->sub_key->sub_sub_key', $settingValue)->get();
+$post = Post::whereSetting('key.sub_key.sub_sub_key', $settingValue)->get();
+```
+
+If using MySQL or PostgreSQL, you can use array for `$settingValue`
+
+```php
+$post = Post::whereSetting('key->sub_key->sub_sub_key', ['value_1', 'value_2'])->get();
+$post = Post::whereSetting('key.sub_key.sub_sub_key', ['value_1', 'value_2'])->get();
 ```
 
 ### Changelog

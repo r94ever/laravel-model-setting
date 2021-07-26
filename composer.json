@@ -1,36 +1,38 @@
 {
-    "name": "qmas/laravel-metadata-trait",
-    "description": "Add HasMetadata trait to Laravel model",
+    "name": "r94ever/laravel-model-setting",
+    "description": "Add setting function to Laravel models.",
     "keywords": [
-        "qmas",
-        "laravel-metadata-trait"
+        "r94ever",
+        "laravel-model-setting",
+        "laravel-model"
     ],
-    "homepage": "https://github.com/webcp/laravel-metadata-trait",
+    "homepage": "https://github.com/r94ever/laravel-model-setting",
     "license": "MIT",
     "type": "library",
     "authors": [
         {
-            "name": "QMAS",
-            "email": "lienhe@qmas.vn",
+            "name": "Duong Thanh Van",
+            "email": "vandt147@outlook.com",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^7.1",
-        "illuminate/support": "5.7.*"
+        "php": "^7.1|^8.0",
+        "ext-json": "*",
+        "illuminate/support": "^6.0|^7.0|^8.0"
     },
     "require-dev": {
-        "orchestra/testbench": "3.8.*",
-        "phpunit/phpunit": "^7.0"
+        "phpunit/phpunit": "^8.0|^9.0",
+        "orchestra/testbench": "^4.0|^5.0|^6.0"
     },
     "autoload": {
         "psr-4": {
-            "Webcp\\LaravelMetadataTrait\\": "src"
+            "r94ever\\LaravelModelSetting\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Webcp\\LaravelMetadataTrait\\Tests\\": "tests"
+            "r94ever\\LaravelModelSetting\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -40,5 +42,13 @@
     },
     "config": {
         "sort-packages": true
-    }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "r94ever\\LaravelModelSetting\\ModelSettingServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev"
 }
