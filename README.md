@@ -1,6 +1,6 @@
 # Laravel Model Setting
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/r94ever/laravel-model-setting)](https://packagist.org/packages/webcp/laravel-metadata-trait)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/r94ever/laravel-model-setting)](https://packagist.org/packages/r94ever/laravel-model-setting)
 
 Add setting function for Laravel Models.
 
