@@ -1,6 +1,8 @@
 # Laravel Model Setting
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/webcp/laravel-metadata-trait.svg?style=flat-square)](https://packagist.org/packages/webcp/laravel-metadata-trait)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/r94ever/laravel-model-setting)](https://packagist.org/packages/webcp/laravel-metadata-trait)
+
+Add setting function for Laravel Models.
 
 ## Installation
 
